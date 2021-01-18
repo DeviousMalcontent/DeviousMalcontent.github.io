@@ -1,0 +1,304 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script type="text/javascript">
+	function $_GET(q,s) {
+		s = s ? s : window.location.search;
+		var re = new RegExp('&'+q+'(?:=([^&]*))?(?=&|$)','i');
+		return (s=s.replace(/^\?/,'&') .match(re)) ? (typeof s[1] == 'undefined' ? '' : decodeURIComponent(s[1])) : undefined;
+	}
+	</script>
+	<title>WebGL - OBJ loader (three.js.org)</title>
+	<meta name="description" content="Link to : Devious_Malcontent (Website)"> 
+	<meta name="keywords" content="Devious_Malcontent,Link to,github,github pages" >
+	<meta property="og:title" content="Link to : Devious_Malcontent (Website" />
+	<meta property="og:description" content="Link to : Devious_Malcontent (Website)" />
+	<meta property="og:url" content="http://DeviousMalcontent.github.io/models/objloader.html" />
+	<meta property="og:image" content="http://DeviousMalcontent.github.io/models/images/og_icon.jpg" />
+	<meta property="og:image:width" content="1000" />
+	<meta property="og:image:height" content="1000" />
+	<meta property="og:image" content="http://DeviousMalcontent.github.io/models/images/og_icon2.jpg" />
+	<meta property="og:image:width" content="512" />
+	<meta property="og:image:height" content="512" />
+	<meta property="og:image" content="http://DeviousMalcontent.github.io/models/images/og_icon3.jpg" />
+	<meta property="og:image:width" content="300" />
+	<meta property="og:image:height" content="300" />
+	<meta property="og:image" content="http://DeviousMalcontent.github.io/models/images/og_icon4.jpg" />
+	<meta property="og:image:width" content="256" />
+	<meta property="og:image:height" content="256" />
+	<meta property="og:image" content="http://DeviousMalcontent.github.io/models/images/og_icon5.jpg" />
+	<meta property="og:image:width" content="200" />
+	<meta property="og:image:height" content="200" />
+	<meta property="og:image" content="http://DeviousMalcontent.github.io/models/images/og_icon6.jpg" />
+	<meta property="og:image:width" content="150" />
+	<meta property="og:image:height" content="150" />
+	<meta property="og:image" content="http://DeviousMalcontent.github.io/models/images/og_icon7.jpg" />
+	<meta property="og:image:width" content="128" />
+	<meta property="og:image:height" content="128" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="shortcut icon" href="models/images/favicon.ico" />
+	<style>
+	body {
+		font-family: Monospace;
+		background-color: #000;
+		color: #fff;
+		margin: 0px;
+		overflow: hidden;
+	}
+	#info {
+		color: #fff;
+		position: absolute;
+		top: 10px;
+		width: 100%;
+		text-align: center;
+		z-index: 100;
+		display:block;
+	}
+	#info a, .button { color: #f00; font-weight: bold; text-decoration: underline; cursor: pointer }
+	</style>
+</head>
+<body>
+	<div id="info">
+		Move mouse and; press LEFT Click or A Key: Rotate, MIDDLE or S Key: Zoom, RIGHT or D Key: Pan, H Key: Hide Text.
+	</div>
+	<script src="js/three.min.js"></script>
+	<script src="js/loaders/MTLLoader.js"></script>
+	<script src="js/loaders/OBJMTLLoader.js"></script>
+	<script src="js/controls/TrackballControls.js"></script>
+	<script src="js/Detector.js"></script>
+	<script src="js/libs/stats.min.js"></script>
+	<script type="text/javascript">
+	if (!window.WebGLRenderingContext) {
+		document.getElementById('info').innerHTML="Your browser has failed to initialize WebGL or it does not support it.<br />Please visit <a href=\"http:\/\/get.webgl.org\" target=\"_blank\">http:\/\/get.webgl.org</a> for more information."
+	}
+	
+	var mode = $_GET('mode');
+	var cc = $_GET('cc');
+	var obj = $_GET('obj');
+	var autorotate = $_GET('autorotate');
+	var camposx = $_GET('camposx');
+	var camposy = $_GET('camposy');
+	var camposz = $_GET('camposz');
+	
+	if(mode==undefined)
+	{
+		var mode=0; 
+	}
+	if(cc==undefined)
+	{
+		var cc=0x000000; 
+	}
+	if(obj==undefined)
+	{
+		var obj="tripod"; 
+	}
+	if(autorotate==undefined || autorotate=='false' || autorotate==0)
+	{
+		var rotate = false; 
+	} 
+	else if(autorotate==1 || autorotate=='true')
+	{
+	   var rotate = true; 
+	} 
+	else 
+	{
+	   var rotate = false; 
+	}
+	
+	var container, stats;
+	var camera, controls, scene, renderer;
+	var mouseX = 0, mouseY = 0;
+	var windowHalfX = window.innerWidth / 2;
+	var windowHalfY = window.innerHeight / 2;
+	
+	init();
+	animate();
+
+	function init() {
+		container = document.createElement( 'div' );
+		document.body.appendChild( container );
+		
+		scene = new THREE.Scene();
+
+		
+		camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
+		if(camposz==undefined)
+		{
+			camera.position.z = 300;
+		} else {
+			camera.position.z = camposz;
+		}
+		
+		if(camposx!=undefined)
+		{
+			camera.position.x = camposx;
+		}
+		if(camposy!=undefined)
+		{
+			camera.position.y = camposy;
+		}
+		
+		scene.add( camera );
+	
+		controls = new THREE.TrackballControls( camera );
+	
+		controls.rotateSpeed = 5.0;
+		controls.zoomSpeed = 5;
+		controls.panSpeed = 2;
+	
+		controls.noZoom = false;
+		controls.noPan = false;
+	
+		controls.staticMoving = true;
+		controls.dynamicDampingFactor = 0.3;
+	    
+		// Fog
+		if(mode==1)
+		{
+		 	scene.fog = new THREE.Fog( 0xcce0ff, 1, 2000 ); //ajex var
+		}
+		
+		// Lights
+		var light, materials;
+
+		scene.add( new THREE.AmbientLight( 0x666666 ) );
+
+		light = new THREE.DirectionalLight( 0xdfebff, 1.75 );
+		light.position.set( 50, 200, 100 );
+		light.position.multiplyScalar( 1.3 );
+
+		light.castShadow = true;
+
+		light.shadowMapWidth = 2048;
+		light.shadowMapHeight = 2048;
+
+		var d = 300;
+
+		light.shadowCameraLeft = -d;
+		light.shadowCameraRight = d;
+		light.shadowCameraTop = d;
+		light.shadowCameraBottom = -d;
+
+		light.shadowCameraFar = 1000;
+		light.shadowDarkness = 0.5;
+
+		scene.add( light );
+
+		//light = new THREE.DirectionalLight( 0x3dff0c, 0.35 );
+		//light.position.set( 0, -1, 0 );
+
+		//scene.add( light );
+		
+		// Extra lighting for mode 0
+		if(mode==2)
+		{
+			var ambient = new THREE.AmbientLight( 0x221100 );
+			scene.add( ambient );
+		
+			var directionalLight = new THREE.DirectionalLight( 0xffffff, 1.5 );
+			directionalLight.position.set( 0, 0, 100 ).normalize();
+			scene.add( directionalLight );
+		}
+	
+		// Model
+		var loader = new THREE.OBJMTLLoader();
+		loader.load( 'obj/'+obj+'/'+obj+'.obj', 'obj/'+obj+'/'+obj+'.mtl', function ( object ) {
+			object.position.y = -80; //ajex var
+			scene.add( object );
+		} );
+	
+		// Ground
+		if(mode==1)
+		{
+			var initColor = new THREE.Color( 0x497f13 );
+			var initTexture = THREE.ImageUtils.generateDataTexture( 1, 1, initColor );
+			
+			var groundMaterial = new THREE.MeshPhongMaterial( { color: 0xffffff, specular: 0x111111, map: initTexture } );
+			var groundTexture = THREE.ImageUtils.loadTexture( "textures/grass1.jpg", undefined, function() { groundMaterial.map = groundTexture } ); //ajex var
+			groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
+			groundTexture.repeat.set( 25, 25 );
+			groundTexture.anisotropy = 16;
+			
+			var mesh = new THREE.Mesh( new THREE.PlaneGeometry( 20000, 20000 ), groundMaterial );
+			mesh.position.y = -80;  //ajex var
+			mesh.rotation.x = - Math.PI / 2;
+			mesh.receiveShadow = true;
+			scene.add( mesh );
+		}
+		
+		// Renderer
+		renderer = new THREE.WebGLRenderer();
+		if(mode==1)
+		{
+			renderer.setClearColor( scene.fog.color );
+			renderer.gammaInput = true;
+			renderer.gammaOutput = true;
+			renderer.shadowMapEnabled = true;
+			
+		} else if (mode==0) {
+			renderer.setClearColor( cc );
+		}
+
+		renderer.setSize( window.innerWidth, window.innerHeight );
+		container.appendChild( renderer.domElement );
+		
+		// Event Listeners
+		document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+		window.addEventListener( 'resize', onWindowResize, false );	
+		document.addEventListener( 'keydown', keyPressed, false );
+		guiVisible = true;
+	}
+
+	function onWindowResize() {
+		windowHalfX = window.innerWidth / 2;
+		windowHalfY = window.innerHeight / 2;
+		
+		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.updateProjectionMatrix();
+
+		renderer.setSize( window.innerWidth, window.innerHeight );
+	}
+	
+	function keyPressed (event) {
+		if (event.keyCode === 72) { // H
+			guiVisible = !guiVisible;
+			document.getElementById('info').style.display = guiVisible ? "block" : "none";
+			stats.domElement.style.display = guiVisible ? "block" : "none";
+		}
+		if (event.keyCode === 82) { // R
+			rotate = !rotate;
+			controls.reset();
+			animate();
+		}
+	}
+
+	function onDocumentMouseMove( event ) {
+		mouseX = ( event.clientX - windowHalfX ) / 2;
+		mouseY = ( event.clientY - windowHalfY ) / 2;
+	}
+
+	function animate() {
+		if (rotate==false) {
+		controls.update();
+		}
+		requestAnimationFrame( animate );
+		render();
+	}
+
+	function render() {
+		var timer = Date.now() * 0.0002; //ajex var
+
+		if ( rotate ) {
+
+			camera.position.x = Math.cos( timer ) * 300;
+			camera.position.z = Math.sin( timer ) * 300; //ajex var
+			
+			camera.lookAt( scene.position );
+		}
+
+		renderer.render( scene, camera );
+	}
+	</script>
+</body>
+</html>
