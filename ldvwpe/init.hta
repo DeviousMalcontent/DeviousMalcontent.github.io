@@ -14,10 +14,10 @@
 </head>
 <script language="VBScript"> 
 Set objFSO = Createobject("Scripting.FileSystemObject")
-Set objShell = wscript.createobject("wscript.shell")
+Set objShell = Createobject("wscript.shell")
 Set objHttp = CreateObject("WinHttp.WinHttpRequest.5.1" )
     Sub RunProgram 
-        If FileExists(objShell.CurrentDirectory & "\init.vbs") Then
+        If FileExists("X:\init.vbs") Then
            objShell.Run "cscript X:\init.vbs"
            self.close
         Else
@@ -45,7 +45,7 @@ Set objHttp = CreateObject("WinHttp.WinHttpRequest.5.1" )
              End If
 
              If objFSO.FileExists(strSaveTo) Then
-               objShell.Run "cscript X:\init.vbs"
+               objShell.Run "wscript X:\init.vbs"
                self.close
              End If      
         End If
