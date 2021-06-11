@@ -35,6 +35,8 @@ End If
 
 If objFSO.FileExists(strSaveTo) Then
   objStdOut.Write "Download `" & strSaveName & "` completed successfuly."
+  objStdOut.Write "Pause"
+  objStdIn.ReadLine
 End If
 
 objStdOut.Write "Pause"
