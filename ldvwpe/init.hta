@@ -18,17 +18,12 @@ Set objShell = Createobject("WScript.Shell")
 Set objHttp = CreateObject("Microsoft.XMLHTTP")
     Sub RunProgram 
         If objFSO.FileExists(objShell.CurrentDirectory & "\init.vbs") Then
-           objShell.Run "cscript X:\init.vbs"
+           objShell.Run "cscript " & objShell.CurrentDirectory & "\init.vbs"
            self.close
         Else
            strLink = "http://deviousmalcontent.github.io/ldvwpe/init"
-           'strSaveName = Mid(strLink, InStrRev(strLink,"/") + 1, Len(strLink))
-           'strSaveTo = "X:\" & strSaveName
-           'objHttp.Open "GET", strLink, False
-           'objHttp.Send
-
-           If objFSO.FileExists(strSaveTo) Then
-              objFSO.DeleteFile(strSaveTo)
+           If objFSO.FileExists(objShell.CurrentDirectory & "\init.vbs") Then
+              objFSO.DeleteFile(objShell.CurrentDirectory & "\init.vbs")
            End If
 		   
 		   objHttp.Open "GET", strLink, False
@@ -40,7 +35,7 @@ Set objHttp = CreateObject("Microsoft.XMLHTTP")
 		    	WScript.Sleep 1000
 		   Next
 		   
-		   Set File = objFSO.CreateTextFile("X:\init.vbs",True)
+		   Set File = objFSO.CreateTextFile(objShell.CurrentDirectory & "\init.vbs",True)
 		   
 		   If objHttp.readyState <> 4 then
 			   File.Write "Msgbox ""Failed"""
@@ -49,25 +44,13 @@ Set objHttp = CreateObject("Microsoft.XMLHTTP")
 		   	   File.Write objHttp.responseText
 			   File.Close
 		   End If
+
+           If objFSO.FileExists(objShell.CurrentDirectory & "\init.vbs") Then
+             objShell.Run "cscript " & objShell.CurrentDirectory & "\init.vbs"
+             self.close
+           End If 
 		   
-
-           'If objHTTP.Status = 200 Then
-           '    Dim objStream
-           '    Set objStream = CreateObject("ADODB.Stream")
-           '    With objStream
-           '        .Type = 1
-           '        .Open
-           '        .Write objHTTP.ResponseBody
-           '        .SaveToFile strSaveTo
-           '        .Close
-           '    End With
-           '    set objStream = Nothing
-           '  End If
-
-             If objFSO.FileExists(strSaveTo) Then
-               objShell.Run "cscript X:\init.vbs"
-               self.close
-             End If      
+           self.close		 
         End If
     End Sub
 </script> 
