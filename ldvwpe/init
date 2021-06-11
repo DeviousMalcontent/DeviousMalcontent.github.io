@@ -3,41 +3,53 @@ Set objShell = Createobject("WScript.Shell")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 Set objHTTP = CreateObject("WinHttp.WinHttpRequest.5.1")
 
-strLink = "http://deviousmalcontent.github.io/ldvwpe/syslinux/bios/win64/syslinux64.exe"
+Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/syslinux/bios/win64/syslinux64.exe")
+'Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/syslinux/bios/win32/syslinux.exe")
+Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/diskpart.txt")
+Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/[BOOT]/Boot-NoEmul.img")
+Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/vmlinuz")
+Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/nbinit4.gz")
+Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/grub.exe")
+Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/isolinux/boot.cat")
+Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/isolinux/isolinux.bin")
+Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/isolinux/isolinux.cfg")
+Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/isolinux/menu.c32")
 
-strSaveName = Mid(strLink, InStrRev(strLink,"/") + 1, Len(strLink))
-strSaveTo = objShell.CurrentDirectory & "\" & strSaveName
+Sub DownloadFile(URL)
+	strSaveName = Mid(URL, InStrRev(URL,"/") + 1, Len(URL))
+	strSaveTo = objShell.CurrentDirectory & "\" & strSaveName
 
-objStdOut.Write "HTTPDownload"
-objStdOut.Write "-------------"
-objStdOut.Write "Download: " & strLink
-objStdOut.Write "Save to:  " & strSaveTo
+	objStdOut.Write "HTTPDownload"
+	objStdOut.Write "-------------"
+	objStdOut.Write "Download: " & URL
+	objStdOut.Write "Save to:  " & strSaveTo
 
-objHTTP.Open "GET", strLink, False
-objHTTP.Send
+	objHTTP.Open "GET", URL, False
+	objHTTP.Send
 
-If objFSO.FileExists(strSaveTo) Then
-  objFSO.DeleteFile(strSaveTo)
-End If
+	If objFSO.FileExists(strSaveTo) Then
+	  objFSO.DeleteFile(strSaveTo)
+	End If
 
-If objHTTP.Status = 200 Then
-  Dim objStream
-  Set objStream = CreateObject("ADODB.Stream")
-  With objStream
-      .Type = 1 'adTypeBinary
-      .Open
-      .Write objHTTP.ResponseBody
-      .SaveToFile strSaveTo
-      .Close
-  End With
-  set objStream = Nothing
-End If
+	If objHTTP.Status = 200 Then
+	  Dim objStream
+	  Set objStream = CreateObject("ADODB.Stream")
+	  With objStream
+		  .Type = 1 'adTypeBinary
+		  .Open
+		  .Write objHTTP.ResponseBody
+		  .SaveToFile strSaveTo
+		  .Close
+	  End With
+	  set objStream = Nothing
+	End If
 
-If objFSO.FileExists(strSaveTo) Then
-  objStdOut.Write "Download `" & strSaveName & "` completed successfuly."
-  objStdOut.Write "Pause"
-  objStdIn.ReadLine
-End If
+	If objFSO.FileExists(strSaveTo) Then
+	  objStdOut.Write "Download `" & strSaveName & "` completed successfuly."
+	  objStdOut.Write "Pause"
+	  objStdIn.ReadLine
+	End If
+End Sub
 
 objStdOut.Write "Pause"
 objStdIn.ReadLine

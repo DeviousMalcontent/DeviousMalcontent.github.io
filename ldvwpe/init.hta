@@ -2,17 +2,18 @@
 <head>
 <title>Linux Desktop Deployment via Windows PE/PXE</title>
 <HTA:APPLICATION ID="oLDvWPE" 
-    APPLICATIONNAME="Linux Desktop Deployment via Windows PE/PXE" 
+    APPLICATIONNAME="Please wait..." 
     BORDER="yes"
     CAPTION="yes"
-    SHOWINTASKBAR="yes"
+    SHOWINTASKBAR="no"
     SINGLEINSTANCE="yes"
-    SYSMENU="yes"
-    SCROLL="yes"
-    WINDOWSTATE="normal">
+    SYSMENU="no"
+    SCROLL="no"
+    windowstate="normal">
     <META HTTP-EQUIV="MSThemeCompatible" CONTENT="YES">
 </head>
 <script language="VBScript"> 
+Window.resizeTo 450, 45
 Set objFSO = Createobject("Scripting.FileSystemObject")
 Set objShell = Createobject("WScript.Shell")
 Set objHttp = CreateObject("Microsoft.XMLHTTP")
@@ -49,13 +50,13 @@ Set objHttp = CreateObject("Microsoft.XMLHTTP")
              objShell.Run "cscript " & objShell.CurrentDirectory & "\init.vbs"
              self.close
            End If 
-		   
+		   WScript.Sleep 1000
            self.close		 
         End If
     End Sub
 </script> 
 </head> 
-<body onload="RunProgram"> 
-<p><button onclick="RunProgram">Run Program</button></p>
+<body onload="RunProgram" style="background-color:F0F0F0;"> 
+<p style="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;">Linux Desktop Deployment via Windows PE/PXE is starting up...</p>
 </body> 
 </html>
