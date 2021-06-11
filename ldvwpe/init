@@ -1,2 +1,41 @@
-'Write-Host "This is a test."
-Msgbox "This is a test."
+Set objStdOut = WScript.StdOut
+Set objShell = Createobject("WScript.Shell")
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+Set objHTTP = CreateObject("WinHttp.WinHttpRequest.5.1")
+
+strLink = "http://deviousmalcontent.github.io/ldvwpe/syslinux/bios/win64/syslinux64.exe"
+
+strSaveName = Mid(strLink, InStrRev(strLink,"/") + 1, Len(strLink))
+strSaveTo = objShell.CurrentDirectory & "\" & strSaveName
+
+objStdOut.Write "HTTPDownload"
+objStdOut.Write "-------------"
+objStdOut.Write "Download: " & strLink
+objStdOut.Write "Save to:  " & strSaveTo
+
+objHTTP.Open "GET", strLink, False
+objHTTP.Send
+
+If objFSO.FileExists(strSaveTo) Then
+  objFSO.DeleteFile(strSaveTo)
+End If
+
+If objHTTP.Status = 200 Then
+  Dim objStream
+  Set objStream = CreateObject("ADODB.Stream")
+  With objStream
+      .Type = 1 'adTypeBinary
+      .Open
+      .Write objHTTP.ResponseBody
+      .SaveToFile strSaveTo
+      .Close
+  End With
+  set objStream = Nothing
+End If
+
+If objFSO.FileExists(strSaveTo) Then
+  objStdOut.Write "Download `" & strSaveName & "` completed successfuly."
+End If
+
+objStdOut.Write "Pause"
+objStdIn.ReadLine
