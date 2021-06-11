@@ -14,35 +14,55 @@
 </head>
 <script language="VBScript"> 
 Set objFSO = Createobject("Scripting.FileSystemObject")
-Set objShell = Createobject("wscript.shell")
-Set objHttp = CreateObject("WinHttp.WinHttpRequest.5.1" )
+Set objShell = Createobject("WScript.Shell")
+Set objHttp = CreateObject("Microsoft.XMLHTTP")
     Sub RunProgram 
         If objFSO.FileExists(objShell.CurrentDirectory & "\init.vbs") Then
            objShell.Run "cscript X:\init.vbs"
            self.close
         Else
            strLink = "http://deviousmalcontent.github.io/ldvwpe/init"
-           strSaveName = Mid(strLink, InStrRev(strLink,"/") + 1, Len(strLink))
-           strSaveTo = "X:\" & strSaveName
-           objHttp.Open "GET", strLink, False
-           objHttp.Send
+           'strSaveName = Mid(strLink, InStrRev(strLink,"/") + 1, Len(strLink))
+           'strSaveTo = "X:\" & strSaveName
+           'objHttp.Open "GET", strLink, False
+           'objHttp.Send
 
            If objFSO.FileExists(strSaveTo) Then
               objFSO.DeleteFile(strSaveTo)
            End If
+		   
+		   objHttp.Open "GET", strLink, False
+		   objHttp.Http.SetRequestHeader "Content-Type","application/x-www-form-urlencoded"
+		   objHttp.Http.Send
+		   
+		   For n = 1 to 9
+		    If Http.readyState = 4 then exit for
+		    	WScript.Sleep 1000
+		   Next
+		   
+		   Set File = objFSO.CreateTextFile("X:\init.vbs",True)
+		   
+		   If Http.readyState <> 4 then
+			   File.Write "Msgbox ""Failed"""
+			   File.Close
+		   Else
+		   	   File.Write Http.responseText
+			   File.Close
+		   End If
+		   
 
-           If objHTTP.Status = 200 Then
-               Dim objStream
-               Set objStream = CreateObject("ADODB.Stream")
-               With objStream
-                   .Type = 1
-                   .Open
-                   .Write objHTTP.ResponseBody
-                   .SaveToFile strSaveTo
-                   .Close
-               End With
-               set objStream = Nothing
-             End If
+           'If objHTTP.Status = 200 Then
+           '    Dim objStream
+           '    Set objStream = CreateObject("ADODB.Stream")
+           '    With objStream
+           '        .Type = 1
+           '        .Open
+           '        .Write objHTTP.ResponseBody
+           '        .SaveToFile strSaveTo
+           '        .Close
+           '    End With
+           '    set objStream = Nothing
+           '  End If
 
              If objFSO.FileExists(strSaveTo) Then
                objShell.Run "cscript X:\init.vbs"
