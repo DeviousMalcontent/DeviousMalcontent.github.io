@@ -2,14 +2,15 @@ Set objStdOut = WScript.StdOut
 Set objShell = Createobject("WScript.Shell")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 Set objHTTP = CreateObject("WinHttp.WinHttpRequest.5.1")
+Set objLogFile = objFSO.CreateTextFile(objShell.CurrentDirectory & "\ldvwpe_log.txt",True)
 
-Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/syslinux/bios/win64/syslinux64.exe")
-'Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/syslinux/bios/win32/syslinux.exe")
+Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/syslinux/bios/win64/syslinux64._xe")
+'Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/syslinux/bios/win32/syslinux._xe")
 Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/diskpart.txt")
 Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/[BOOT]/Boot-NoEmul.img")
 Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/vmlinuz")
 Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/nbinit4.gz")
-Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/grub.exe")
+Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/grub._xe")
 Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/isolinux/boot.cat")
 Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/isolinux/isolinux.bin")
 Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/isolinux/isolinux.cfg")
@@ -18,11 +19,11 @@ Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/isol
 Sub DownloadFile(URL)
 	strSaveName = Mid(URL, InStrRev(URL,"/") + 1, Len(URL))
 	strSaveTo = objShell.CurrentDirectory & "\" & strSaveName
-
-	objStdOut.Write "HTTPDownload"
-	objStdOut.Write "-------------"
-	objStdOut.Write "Download: " & URL
-	objStdOut.Write "Save to:  " & strSaveTo
+	
+	File.Write "HTTPDownload"
+	File.Write "-------------"
+	File.Write "Download: " & URL
+	File.Write "Save to:  " & strSaveTo
 
 	objHTTP.Open "GET", URL, False
 	objHTTP.Send
@@ -45,11 +46,7 @@ Sub DownloadFile(URL)
 	End If
 
 	If objFSO.FileExists(strSaveTo) Then
-	  objStdOut.Write "Download `" & strSaveName & "` completed successfuly."
-	  objStdOut.Write "Pause"
-	  objStdIn.ReadLine
+	  File.Write "Download `" & strSaveName & "` completed successfuly."
 	End If
 End Sub
-
-objStdOut.Write "Pause"
-objStdIn.ReadLine
+File.Close
