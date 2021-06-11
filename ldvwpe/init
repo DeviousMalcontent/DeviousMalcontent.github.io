@@ -17,36 +17,36 @@ Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/isol
 Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/isolinux/menu.c32")
 
 Sub DownloadFile(URL)
-	strSaveName = Mid(URL, InStrRev(URL,"/") + 1, Len(URL))
-	strSaveTo = objShell.CurrentDirectory & "\" & strSaveName
-	
-	File.Write "HTTPDownload"
-	File.Write "-------------"
-	File.Write "Download: " & URL
-	File.Write "Save to:  " & strSaveTo
+    strSaveName = Mid(URL, InStrRev(URL,"/") + 1, Len(URL))
+    strSaveTo = objShell.CurrentDirectory & "\" & strSaveName
+    
+    objLogFile.Write "HTTPDownload"
+    objLogFile.Write "-------------"
+    objLogFile.Write "Download: " & URL
+    objLogFile.Write "Save to:  " & strSaveTo
 
-	objHTTP.Open "GET", URL, False
-	objHTTP.Send
+    objHTTP.Open "GET", URL, False
+    objHTTP.Send
 
-	If objFSO.FileExists(strSaveTo) Then
-	  objFSO.DeleteFile(strSaveTo)
-	End If
+    If objFSO.FileExists(strSaveTo) Then
+      objFSO.DeleteFile(strSaveTo)
+    End If
 
-	If objHTTP.Status = 200 Then
-	  Dim objStream
-	  Set objStream = CreateObject("ADODB.Stream")
-	  With objStream
-		  .Type = 1 'adTypeBinary
-		  .Open
-		  .Write objHTTP.ResponseBody
-		  .SaveToFile strSaveTo
-		  .Close
-	  End With
-	  set objStream = Nothing
-	End If
+    If objHTTP.Status = 200 Then
+      Dim objStream
+      Set objStream = CreateObject("ADODB.Stream")
+      With objStream
+          .Type = 1 'adTypeBinary
+          .Open
+          .Write objHTTP.ResponseBody
+          .SaveToFile strSaveTo
+          .Close
+      End With
+      set objStream = Nothing
+    End If
 
-	If objFSO.FileExists(strSaveTo) Then
-	  File.Write "Download `" & strSaveName & "` completed successfuly."
-	End If
+    If objFSO.FileExists(strSaveTo) Then
+      objLogFile.Write "Download `" & strSaveName & "` completed successfuly."
+    End If
 End Sub
 File.Close
