@@ -36,17 +36,17 @@ Set objHttp = CreateObject("Microsoft.XMLHTTP")
 		   objHttp.Send
 		   
 		   For n = 1 to 9
-		    If Http.readyState = 4 then exit for
+		    If objHttp.readyState = 4 then exit for
 		    	WScript.Sleep 1000
 		   Next
 		   
 		   Set File = objFSO.CreateTextFile("X:\init.vbs",True)
 		   
-		   If Http.readyState <> 4 then
+		   If objHttp.readyState <> 4 then
 			   File.Write "Msgbox ""Failed"""
 			   File.Close
 		   Else
-		   	   File.Write Http.responseText
+		   	   File.Write objHttp.responseText
 			   File.Close
 		   End If
 		   
