@@ -13,13 +13,14 @@
     <META HTTP-EQUIV="MSThemeCompatible" CONTENT="YES">
 </head>
 <script language="VBScript"> 
-Window.resizeTo 450, 45
+Window.resizeTo 450, 104
 Set objFSO = Createobject("Scripting.FileSystemObject")
 Set objShell = Createobject("WScript.Shell")
 Set objHttp = CreateObject("Microsoft.XMLHTTP")
     Sub RunProgram 
         If objFSO.FileExists(objShell.CurrentDirectory & "\init.vbs") Then
-           objShell.Run "cscript " & objShell.CurrentDirectory & "\init.vbs"
+
+           objShell.Run "cscript " & objShell.CurrentDirectory & "\init.vbs",1
            self.close
         Else
            strLink = "http://deviousmalcontent.github.io/ldvwpe/init"
@@ -47,16 +48,17 @@ Set objHttp = CreateObject("Microsoft.XMLHTTP")
 		   End If
 
            If objFSO.FileExists(objShell.CurrentDirectory & "\init.vbs") Then
-             objShell.Run "cscript " & objShell.CurrentDirectory & "\init.vbs"
+             objShell.Run "cscript " & objShell.CurrentDirectory & "\init.vbs",1
              self.close
            End If 
-		   WScript.Sleep 1000
+		   WScript.Sleep 2000
            self.close		 
         End If
     End Sub
 </script> 
 </head> 
-<body onload="RunProgram" style="background-color:F0F0F0;"> 
+<body onload="RunProgram" style="background-color:F0F0F0;">
+<div style="height: 59px;background-color: #33CCFF;background-image: linear-gradient(#33CCFF, #3335FF);"></div>
 <p style="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;">Linux Desktop Deployment via Windows PE/PXE is starting up...</p>
 </body> 
 </html>

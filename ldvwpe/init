@@ -20,10 +20,10 @@ Sub DownloadFile(URL)
     strSaveName = Mid(URL, InStrRev(URL,"/") + 1, Len(URL))
     strSaveTo = objShell.CurrentDirectory & "\" & strSaveName
     
-    objLogFile.Write "HTTPDownload"
-    objLogFile.Write "-------------"
-    objLogFile.Write "Download: " & URL
-    objLogFile.Write "Save to:  " & strSaveTo
+    objLogFile.Write "HTTPDownload" & vbCrLf
+    objLogFile.Write "-------------" & vbCrLf
+    objLogFile.Write "Download: " & URL & vbCrLf
+    objLogFile.Write "Save to:  " & strSaveTo & vbCrLf
 
     objHTTP.Open "GET", URL, False
     objHTTP.Send
@@ -46,7 +46,7 @@ Sub DownloadFile(URL)
     End If
 
     If objFSO.FileExists(strSaveTo) Then
-      objLogFile.Write "Download `" & strSaveName & "` completed successfuly."
+      objLogFile.Write "Download `" & strSaveName & "` completed successfuly." & vbCrLf
     End If
 End Sub
 File.Close
