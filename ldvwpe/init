@@ -16,6 +16,8 @@ Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/isol
 Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/isolinux/isolinux.cfg")
 Call DownloadFile("http://deviousmalcontent.github.io/ldvwpe/NetbootCD/boot/isolinux/menu.c32")
 
+Call DiskPart()
+
 Sub DownloadFile(URL)
     strSaveName = Mid(URL, InStrRev(URL,"/") + 1, Len(URL))
     strSaveTo = objShell.CurrentDirectory & "\" & strSaveName
@@ -49,4 +51,81 @@ Sub DownloadFile(URL)
       objLogFile.Write "Download `" & strSaveName & "` completed successfuly." & vbCrLf
     End If
 End Sub
-File.Close
+
+Sub DiskPart
+        If objFSO.FileExists(objShell.CurrentDirectory & "\diskpart.txt") Then
+           objShell.Run "diskpart /s " & objShell.CurrentDirectory & "\diskpart.txt",1
+		   objLogFile.Write "Partitioning utility started." & vbCrLf
+		   
+		   For n = 1 to 120
+		   If objFSO.DriveExists("Z:\") Then exit for
+				objLogFile.Write n & ": Drive not ready." & vbCrLf
+				WScript.Sleep 1000
+		   Next
+		   
+		   Call MoveAndRenameFile()
+		   
+        Else
+           objLogFile.Write "Error: diskpart script file missing." & vbCrLf
+		   WScript.Quit
+        End If
+End Sub
+
+Sub MoveAndRenameFile
+	If objFSO.DriveExists("Z:\")
+		If objFSO.FileExists(objShell.CurrentDirectory & "\syslinux64._xe") Then
+		  objLogFile.Write "Renaming syslinux64." & vbCrLf
+		  objFSO.MoveFile objShell.CurrentDirectory & "\syslinux64._xe", "Z:\syslinux64.exe"
+		End If
+		
+		If objFSO.FileExists(objShell.CurrentDirectory & "\grub._xe") Then
+		  objLogFile.Write "Renaming grub." & vbCrLf
+		  objFSO.MoveFile objShell.CurrentDirectory & "\grub._xe", "Z:\grub.exe"
+		End If
+		
+		If objFSO.FileExists(objShell.CurrentDirectory & "\Boot-NoEmul.img") Then
+		  objLogFile.Write "Renaming Boot-NoEmul.img." & vbCrLf
+		  objFSO.MoveFile objShell.CurrentDirectory & "\Boot-NoEmul.img", "Z:\[BOOT]\Boot-NoEmul.img"
+		End If
+		
+		If objFSO.FileExists(objShell.CurrentDirectory & "\Boot-NoEmul.img") Then
+		  objLogFile.Write "Renaming Boot-NoEmul.img." & vbCrLf
+		  objFSO.MoveFile objShell.CurrentDirectory & "\Boot-NoEmul.img", "Z:\[BOOT]\Boot-NoEmul.img"
+		End If
+		
+				If objFSO.FileExists(objShell.CurrentDirectory & "\vmlinuz") Then
+		  objLogFile.Write "Renaming vmlinuz." & vbCrLf
+		  objFSO.MoveFile objShell.CurrentDirectory & "\vmlinuz", "Z:\boot\vmlinuz"
+		End If
+
+		If objFSO.FileExists(objShell.CurrentDirectory & "\nbinit4.gz") Then
+		  objLogFile.Write "Renaming nbinit4.gz." & vbCrLf
+		  objFSO.MoveFile objShell.CurrentDirectory & "\nbinit4.gz", "Z:\boot\nbinit4.gz"
+		End If
+
+		If objFSO.FileExists(objShell.CurrentDirectory & "\boot.cat") Then
+		  objLogFile.Write "Renaming boot.cat." & vbCrLf
+		  objFSO.MoveFile objShell.CurrentDirectory & "\boot.cat", "Z:\boot\isolinux\boot.cat"
+		End If
+
+		If objFSO.FileExists(objShell.CurrentDirectory & "\isolinux.bin") Then
+		  objLogFile.Write "Renaming isolinux.bin." & vbCrLf
+		  objFSO.MoveFile objShell.CurrentDirectory & "\boot.cat", "Z:\boot\isolinux\isolinux.bin"
+		End If
+
+		If objFSO.FileExists(objShell.CurrentDirectory & "\isolinux.cfg") Then
+		  objLogFile.Write "Renaming isolinux.cfg." & vbCrLf
+		  objFSO.MoveFile objShell.CurrentDirectory & "\boot.cat", "Z:\boot\isolinux\isolinux.cfg"
+		End If
+
+		If objFSO.FileExists(objShell.CurrentDirectory & "\menu.c32") Then
+		  objLogFile.Write "Renaming menu.c32." & vbCrLf
+		  objFSO.MoveFile objShell.CurrentDirectory & "\boot.cat", "Z:\boot\isolinux\menu.c32"
+		End If
+	Else 
+	   objLogFile.Write "Error: Drive partitioning timed out." & vbCrLf
+       WScript.Quit
+	End If
+End Sub
+
+objLogFile.Close

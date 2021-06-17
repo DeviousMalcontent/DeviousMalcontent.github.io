@@ -1,6 +1,6 @@
 select disk 0
 clean
 convert mbr
-create partition primary size=20
-format quick fs=fat32 label=Linux NetBootCD
+create partition primary size=100
+format quick fs=fat32 label=NetBootCD
 assign letter=Z
