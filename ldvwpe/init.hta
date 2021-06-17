@@ -3,7 +3,7 @@
 <title>Please wait...</title>
 <HTA:APPLICATION ID="oLDvWPE" 
     APPLICATIONNAME="Please wait..." 
-    BORDER="dialog"
+    BORDER="no"
 	INNERBORDER="no"
 	MAXIMIZEBUTTON="no"
     CAPTION="yes"
@@ -15,7 +15,7 @@
     <META HTTP-EQUIV="MSThemeCompatible" CONTENT="YES">
 </head>
 <script language="VBScript"> 
-Window.resizeTo 450, 104
+Window.resizeTo 450, 125
 Set objFSO = Createobject("Scripting.FileSystemObject")
 Set objShell = Createobject("WScript.Shell")
 Set objHttp = CreateObject("Microsoft.XMLHTTP")
@@ -53,7 +53,7 @@ Set objHttp = CreateObject("Microsoft.XMLHTTP")
              objShell.Run "cscript " & objShell.CurrentDirectory & "\init.vbs",0
              self.close
            End If 
-		   WScript.Sleep 2000
+		   WScript.Sleep 1000
            self.close		 
         End If
     End Sub
