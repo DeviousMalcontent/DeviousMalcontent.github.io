@@ -72,7 +72,7 @@ Sub DiskPart
 End Sub
 
 Sub MoveAndRenameFile
-	If objFSO.DriveExists("Z:\")
+	If objFSO.DriveExists("Z:\") Then
 		If objFSO.FileExists(objShell.CurrentDirectory & "\syslinux64._xe") Then
 		  objLogFile.Write "Renaming syslinux64." & vbCrLf
 		  objFSO.MoveFile objShell.CurrentDirectory & "\syslinux64._xe", "Z:\syslinux64.exe"
