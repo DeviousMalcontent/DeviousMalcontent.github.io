@@ -118,17 +118,17 @@ Sub MoveAndRenameFile
 
 		If objFSO.FileExists(objShell.CurrentDirectory & "\isolinux.bin") Then
 		  objLogFile.Write "Renaming isolinux.bin." & vbCrLf
-		  objFSO.MoveFile objShell.CurrentDirectory & "\boot.cat", "Z:\boot\isolinux\isolinux.bin"
+		  objFSO.MoveFile objShell.CurrentDirectory & "\isolinux.bin", "Z:\boot\isolinux\isolinux.bin"
 		End If
 
 		If objFSO.FileExists(objShell.CurrentDirectory & "\isolinux.cfg") Then
 		  objLogFile.Write "Renaming isolinux.cfg." & vbCrLf
-		  objFSO.MoveFile objShell.CurrentDirectory & "\boot.cat", "Z:\boot\isolinux\isolinux.cfg"
+		  objFSO.MoveFile objShell.CurrentDirectory & "\isolinux.cfg", "Z:\boot\isolinux\isolinux.cfg"
 		End If
 
 		If objFSO.FileExists(objShell.CurrentDirectory & "\menu.c32") Then
 		  objLogFile.Write "Renaming menu.c32." & vbCrLf
-		  objFSO.MoveFile objShell.CurrentDirectory & "\boot.cat", "Z:\boot\isolinux\menu.c32"
+		  objFSO.MoveFile objShell.CurrentDirectory & "\menu.c32", "Z:\boot\isolinux\menu.c32"
 		End If
 	Else 
 	   objLogFile.Write "Error: Drive partitioning timed out." & vbCrLf
