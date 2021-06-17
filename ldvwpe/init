@@ -83,9 +83,17 @@ Sub MoveAndRenameFile
 		  objFSO.MoveFile objShell.CurrentDirectory & "\grub._xe", "Z:\grub.exe"
 		End If
 		
-		If objFSO.FileExists(objShell.CurrentDirectory & "\Boot-NoEmul.img") Then
-		  objLogFile.Write "Renaming Boot-NoEmul.img." & vbCrLf
-		  objFSO.MoveFile objShell.CurrentDirectory & "\Boot-NoEmul.img", "Z:\[BOOT]\Boot-NoEmul.img"
+		
+		If Not objFSO.FolderExists("Z:\[BOOT]") Then
+			objFSO.CreateFolder "Z:\[BOOT]"
+		End If
+		
+		If Not objFSO.FolderExists("Z:\boot") Then
+			objFSO.CreateFolder "Z:\boot"
+		End If
+		
+		If Not objFSO.FolderExists("Z:\boot\isolinux") Then
+			objFSO.CreateFolder "Z:\boot\isolinux"
 		End If
 		
 		If objFSO.FileExists(objShell.CurrentDirectory & "\Boot-NoEmul.img") Then
@@ -93,7 +101,7 @@ Sub MoveAndRenameFile
 		  objFSO.MoveFile objShell.CurrentDirectory & "\Boot-NoEmul.img", "Z:\[BOOT]\Boot-NoEmul.img"
 		End If
 		
-				If objFSO.FileExists(objShell.CurrentDirectory & "\vmlinuz") Then
+		If objFSO.FileExists(objShell.CurrentDirectory & "\vmlinuz") Then
 		  objLogFile.Write "Renaming vmlinuz." & vbCrLf
 		  objFSO.MoveFile objShell.CurrentDirectory & "\vmlinuz", "Z:\boot\vmlinuz"
 		End If
