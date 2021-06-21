@@ -141,7 +141,7 @@ End Sub
 
 Sub InstallBootLoader
         If objFSO.FileExists("Z:\syslinux64.exe") Then
-           objShell.Run "Z:\syslinux64.exe syslinux.exe -f -m -a Z:",1
+           objShell.Run "Z:\syslinux64.exe -f -m -a Z:",1
 		   objLogFile.Write "Installing Boot Loader." & vbCrLf	
 
 		Call RestartDevice()	
