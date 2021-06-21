@@ -78,12 +78,7 @@ Sub MoveAndRenameFile
 		  objFSO.MoveFile objShell.CurrentDirectory & "\syslinux64._xe", "Z:\syslinux64.exe"
 		End If
 		
-		If objFSO.FileExists(objShell.CurrentDirectory & "\grub._xe") Then
-		  objLogFile.Write "Renaming grub." & vbCrLf
-		  objFSO.MoveFile objShell.CurrentDirectory & "\grub._xe", "Z:\grub.exe"
-		End If
-		
-		
+
 		If Not objFSO.FolderExists("Z:\[BOOT]") Then
 			objFSO.CreateFolder "Z:\[BOOT]"
 		End If
@@ -94,6 +89,11 @@ Sub MoveAndRenameFile
 		
 		If Not objFSO.FolderExists("Z:\boot\isolinux") Then
 			objFSO.CreateFolder "Z:\boot\isolinux"
+		End If
+		
+		If objFSO.FileExists(objShell.CurrentDirectory & "\grub._xe") Then
+		  objLogFile.Write "Renaming grub." & vbCrLf
+		  objFSO.MoveFile objShell.CurrentDirectory & "\grub._xe", "Z:\boot\grub.exe"
 		End If
 		
 		If objFSO.FileExists(objShell.CurrentDirectory & "\Boot-NoEmul.img") Then
@@ -130,10 +130,35 @@ Sub MoveAndRenameFile
 		  objLogFile.Write "Renaming menu.c32." & vbCrLf
 		  objFSO.MoveFile objShell.CurrentDirectory & "\menu.c32", "Z:\boot\isolinux\menu.c32"
 		End If
+		
+		Call InstallBootLoader()
+		
 	Else 
 	   objLogFile.Write "Error: Drive partitioning timed out." & vbCrLf
        WScript.Quit
 	End If
+End Sub
+
+Sub InstallBootLoader
+        If objFSO.FileExists("Z:\syslinux64.exe") Then
+           objShell.Run "Z:\syslinux64.exe syslinux.exe -f -m -a Z:",1
+		   objLogFile.Write "Installing Boot Loader." & vbCrLf	
+
+		Call RestartDevice()	
+		
+        Else
+           objLogFile.Write "Error: boot loader not installed ." & vbCrLf
+		   WScript.Quit
+        End If
+End Sub
+
+Sub RestartDevice
+	Set OpSysSet = GetObject("winmgmts:{authenticationlevel=Pkt," _
+		 & "(Shutdown)}").ExecQuery("select * from Win32_OperatingSystem where "_
+		 & "Primary=true")
+	for each OpSys in OpSysSet
+		retVal = OpSys.Win32Shutdown(6)
+	next
 End Sub
 
 objLogFile.Close
