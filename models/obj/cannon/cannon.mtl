@@ -1,56 +1,68 @@
-# Material file for cannon.obj
-
-newmtl woodfront
-	Ns 0
-	d 1
-	illum 2
-	Kd 0.8 0.8 0.8
-	Ks 0.0 0.0 0.0
-	Ka 0.2 0.2 0.2
-	map_Kd woodfront.jpg
-
-newmtl wheels_outframe
-	Ns 0
-	d 1
-	illum 2
-	Kd 0.8 0.8 0.8
-	Ks 0.0 0.0 0.0
-	Ka 0.2 0.2 0.2
-	map_Kd wheels_outframe.jpg
-
-newmtl wheels_bar
-	Ns 0
-	d 1
-	illum 2
-	Kd 0.8 0.8 0.8
-	Ks 0.0 0.0 0.0
-	Ka 0.2 0.2 0.2
-	map_Kd wheels_bar.jpg
+# Blender MTL File: 'cannon.mtl'
+# Material Count: 6
 
 newmtl axle_lower
-	Ns 0
-	d 1
-	illum 2
-	Kd 0.8 0.8 0.8
-	Ks 0.0 0.0 0.0
-	Ka 0.2 0.2 0.2
-	map_Kd axle_lower.jpg
-
-newmtl woodtopside
-	Ns 0
-	d 1
-	illum 2
-	Kd 0.8 0.8 0.8
-	Ks 0.0 0.0 0.0
-	Ka 0.2 0.2 0.2
-	map_Kd woodtopside.jpg
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.0 0.0 0.0
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd axle_lower.jpg
 
 newmtl barrel
-	Ns 0
-	d 1
-	illum 2
-	Kd 0.8 0.8 0.8
-	Ks 0.0 0.0 0.0
-	Ka 0.2 0.2 0.2
-	map_Kd barrel.jpg
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.0 0.0 0.0
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd barrel.jpg
 
+newmtl wheels_bar
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.0 0.0 0.0
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd wheels_bar.jpg
+
+newmtl wheels_outframe
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.0 0.0 0.0
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd wheels_outframe.jpg
+
+newmtl woodfront
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.0 0.0 0.0
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd woodfront.jpg
+
+newmtl woodtopside
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.0 0.0 0.0
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd woodtopside.jpg
