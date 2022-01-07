@@ -17,7 +17,7 @@ illum 2
 Kd 0.8 0.8 0.8
 Ks 0.0 0.0 0.0
 Ka 0.2 0.2 0.2
-map_Kd bud.png
+map_Kd bud.jpg
 
 newmtl cone
 Ns 0
@@ -26,7 +26,7 @@ illum 2
 Kd 0.8 0.8 0.8
 Ks 0.0 0.0 0.0
 Ka 0.2 0.2 0.2
-map_Kd cone.png
+map_Kd cone.jpg
 
 newmtl action
 Ns 0
@@ -35,7 +35,7 @@ illum 2
 Kd 0.8 0.8 0.8
 Ks 0.0 0.0 0.0
 Ka 0.2 0.2 0.2
-map_Kd action.png
+map_Kd action.jpg
 
 newmtl barrals
 Ns 0
@@ -44,7 +44,7 @@ illum 2
 Kd 0.8 0.8 0.8
 Ks 0.0 0.0 0.0
 Ka 0.2 0.2 0.2
-map_Kd barrals.png
+map_Kd barrals.jpg
 
 newmtl other
 Ns 0
@@ -53,5 +53,5 @@ illum 2
 Kd 0.8 0.8 0.8
 Ks 0.0 0.0 0.0
 Ka 0.2 0.2 0.2
-map_Kd other.png
+map_Kd other.jpg
 
