@@ -1,0 +1,48 @@
+# Blender MTL File: 'shotgun.mtl'
+# Material Count: 5
+
+newmtl bud
+Ns 0
+d 1
+illum 2
+Kd 0.8 0.8 0.8
+Ks 0.0 0.0 0.0
+Ka 0.2 0.2 0.2
+map_Kd bud.jpg
+
+newmtl cone
+Ns 0
+d 1
+illum 2
+Kd 0.8 0.8 0.8
+Ks 0.0 0.0 0.0
+Ka 0.2 0.2 0.2
+map_Kd cone.jpg
+
+newmtl action
+Ns 0
+d 1
+illum 2
+Kd 0.8 0.8 0.8
+Ks 0.0 0.0 0.0
+Ka 0.2 0.2 0.2
+map_Kd action.jpg
+
+newmtl barrals
+Ns 0
+d 1
+illum 2
+Kd 0.8 0.8 0.8
+Ks 0.0 0.0 0.0
+Ka 0.2 0.2 0.2
+map_Kd barrals.jpg
+
+newmtl other
+Ns 0
+d 1
+illum 2
+Kd 0.8 0.8 0.8
+Ks 0.0 0.0 0.0
+Ka 0.2 0.2 0.2
+map_Kd other.jpg
+
