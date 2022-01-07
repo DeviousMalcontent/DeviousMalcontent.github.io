@@ -2,7 +2,7 @@
 # Exported by Maverick Model 3D 1.3.11
 # Fri Jan 07 14:00:01 2022
 
-mtllib pa_shotgun.mtl
+mtllib shotgun.mtl
 
 # 460 Vertices
 v -0.046875 5.296875 2.265625
