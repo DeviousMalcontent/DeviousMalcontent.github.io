@@ -1,4 +1,4 @@
-# Blender MTL File: 'floodlight.mtl'
+# Blender MTL File: 'None'
 # Material Count: 3
 
 newmtl glow
@@ -19,9 +19,7 @@ Kd 0.800000 0.800000 0.800000
 Ks 0.000000 0.000000 0.000000
 Ke 0.0 0.0 0.0
 Ni 1.450000
-Tr 0.200000
 d 1.000000
-
 illum 1
 map_Kd mesh.png
 
