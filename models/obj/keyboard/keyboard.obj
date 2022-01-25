@@ -1,7 +1,7 @@
 # Blender v2.80 (sub 75) OBJ File: ''
 # www.blender.org
-mtllib keybord.mtl
-o keybord
+mtllib keyboard.mtl
+o keyboard
 v 12.484375 1.671875 0.140625
 v -12.093750 1.656250 0.109375
 v 12.453125 0.984374 6.703125
@@ -3130,7 +3130,7 @@ vn -0.0031 0.1636 0.9865
 vn -0.9645 0.2626 0.0289
 vn -0.9644 0.2628 0.0289
 vn -0.9648 0.2612 0.0294
-usemtl keybord
+usemtl keyboard
 s 1
 f 1/1/1 2/2/2 3/3/3
 f 2/2/2 4/4/4 3/3/3
