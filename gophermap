@@ -1,0 +1,10 @@
+iWelcome to this Gopherhole!
+
+0This is a text file in a link	file.txt
+9This is a pdf file in a link	file.pdf
+1This is a link to a directory	subdir
+
+IAn image	img.gif
+
+0A file on another server	/gopher/relevance.txt	gopher.floodgap.com	70
+hA HTTP link to a website URL:https://archlinux.org
