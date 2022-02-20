@@ -4,16 +4,26 @@ This is the CSS code for my website.
 Makes it easier to update.
 */
 
-body, 
-p.msoNormal /* We have to have this here, other wise IE wont work properly, not that it ever has. */
-li.msoNormal /* Stupid IE!*/
-{ 
+/* p.msoNormal  We have to have this here, other wise IE wont work properly, not that it ever has. */
+/* li.msoNormal  Stupid IE!*/
+body
+{
+background-image: url("images/darkback1.jpg");
 background-position: top left; 
 background-repeat: repeat-y;
 margin-left: 9em;
 margin-top: 0em;
 margin-bottom: 0em;
 }
+
+#noframes
+{
+background-image: url("images/darkback1.jpg");
+background-position: 200px; 
+background-repeat: repeat-y;
+margin-left: 200px;
+}
+
 
 hr /* Selected colour for the horizontal rule. */
 {
@@ -49,3 +59,17 @@ indent the bottom of the cell; other wise IE won’t render a space in between the
 /*
 Why cant the CSS syntax support C style comments? you know //this is a one lined comment. 
 */
+
+
+#LeftNavigation {
+/* z-index: 0; */
+z-index: 1;
+position: fixed; 
+top: 0px; 
+left: 0px; 
+width: 200px; 
+height: 100%; 
+/* background-color: #000000; */
+background-image:url('images/navbarbackg1.JPG');
+line-height: 3px;
+}
