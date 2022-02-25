@@ -16,6 +16,15 @@ margin-top: 0em;
 margin-bottom: 0em;
 }
 
+
+
+hr
+{
+color: #CCCCCC;
+width: 776px;
+float: center; 
+}
+
 #noframes
 {
 background-image: url("images/darkback1.jpg");
@@ -23,43 +32,6 @@ background-position: 200px;
 background-repeat: repeat-y;
 margin-left: 200px;
 }
-
-
-hr /* Selected colour for the horizontal rule. */
-{
-color: #CCCCCC;
-width: 776px;
-float: center; 
-/* 
-Grate, I added this code in, and it works! That is, in every other browser except IE.
-
-DAM YOU BILL GATES!!!!!
-
-DAM YOU TO HELL!
-*/
-}
-
-/* make a nice looking table for my blog. */
-table.blog
-{
-border-style: solid;
-border-width: 1px;
-border-collapse: collapse;
-color: #000001;
-}
-td /* Indent the cells so that they are easier to read. */
-{
-padding-left: 10pt;
-padding-bottom: 5pt; 
-/* 
-Because Internet explorer is such a bad web browser, we need to 
-indent the bottom of the cell; other wise IE won’t render a space in between them, and it will look bad. 
-*/
-}
-/*
-Why cant the CSS syntax support C style comments? you know //this is a one lined comment. 
-*/
-
 
 #LeftNavigation {
 /* z-index: 0; */
@@ -70,6 +42,25 @@ left: 0px;
 width: 200px; 
 height: 100%; 
 /* background-color: #000000; */
-background-image:url('images/navbarbackg1.JPG');
+background-image:url('images/navbarbackg1.jpg');
 line-height: 3px;
+}
+
+
+.footer {
+	/* border: 3px solid green; */
+    margin: 0 auto;
+    width: 50%;
+    /* text-align: center;
+    font-family:'Montserrat', sans-serif; */
+    display: flex;
+    justify-content: center;
+}
+.footer p {
+	/* border: 3px solid green; */
+	text-align: center;
+    width:100px;
+    padding:5px;
+    margin: 5px;
+    display: table-cell;
 }
