@@ -30,22 +30,73 @@ float: center;
 background-image: url("images/darkback1.jpg");
 background-position: 200px; 
 background-repeat: repeat-y;
-margin-left: 200px;
+margin-left: 328px;
+text-align: left;
 }
+/*
 
 #LeftNavigation {
-/* z-index: 0; */
+/* z-index: 0; *
 z-index: 1;
 position: fixed; 
 top: 0px; 
 left: 0px; 
 width: 200px; 
 height: 100%; 
-/* background-color: #000000; */
+/* background-color: #000000; *
 background-image:url('images/navbarbackg1.jpg');
 line-height: 3px;
+} */
+
+
+
+
+.navbar {
+	z-index: 1;
+	position: fixed; 
+	top: 0px; 
+	left: 0px; 
+	width: 200px; 
+	height: 100%; 
+	background-color: #2227FD;
+	background-image:url('images/navbarbackg1.jpg');
+	background-position: top left; 
+	background-repeat: repeat-y;
+	margin-left: 0;
+
+	/* background="Images/navbarbackg1.jpg" bgcolor="#000000" link="#FFFFFF" vlink="#C0C0C0" */
 }
 
+.navbar h2 {
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: lighter;
+  padding-right:12px;
+}
+
+.navbar p {
+  color: #FFFFFF;
+  text-align: left;
+  font-weight: bold;
+  padding-left:12px;
+  line-height: 4px;
+}
+
+.navbar a:link {
+  color: #FFFFFF;
+}
+
+.navbar a:visited {
+  color: #C0C0C0;
+}
+
+.navbar a:hover {
+  color: #57007F;
+}
+
+.navbar a:active {
+  color: #FFFFFF;
+} 
 
 .footer {
 	/* border: 3px solid green; */
