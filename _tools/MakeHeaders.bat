@@ -30,4 +30,44 @@ echo HTML
 ImageMagick-7.0.11-12-portable-Q16-x86\magick -size 766x72 -define gradient:angle=0 gradient:"#788BFE-#1639FE" ..\images\html.png 
 ImageMagick-7.0.11-12-portable-Q16-x86\convert ..\images\html.png ( +clone  -alpha extract -draw "fill black polygon 0,0 0,10 10,0 fill white circle 10,10 10,0" ( +clone -flip ) -compose Multiply -composite ( +clone -flop ) -compose Multiply -composite ) -alpha off -compose CopyOpacity -composite  ..\images\html.png
 ImageMagick-7.0.11-12-portable-Q16-x86\convert -font arial -fill black -pointsize 50 -gravity West -draw "text 24,-4 '* HyperText Markup Language'" ..\images\html.png ..\images\html.png
+
+echo Octal
+ImageMagick-7.0.11-12-portable-Q16-x86\magick -size 766x72 -define gradient:angle=0 gradient:"#788BFE-#1639FE" ..\images\octal.png 
+ImageMagick-7.0.11-12-portable-Q16-x86\convert ..\images\octal.png ( +clone  -alpha extract -draw "fill black polygon 0,0 0,10 10,0 fill white circle 10,10 10,0" ( +clone -flip ) -compose Multiply -composite ( +clone -flop ) -compose Multiply -composite ) -alpha off -compose CopyOpacity -composite  ..\images\octal.png
+ImageMagick-7.0.11-12-portable-Q16-x86\convert -font arial -fill black -pointsize 50 -gravity West -draw "text 24,-4 '* Octal Numbering System'" ..\images\octal.png ..\images\octal.png
+
+echo Hexadecimal
+ImageMagick-7.0.11-12-portable-Q16-x86\magick -size 766x72 -define gradient:angle=0 gradient:"#788BFE-#1639FE" ..\images\hex.png 
+ImageMagick-7.0.11-12-portable-Q16-x86\convert ..\images\hex.png ( +clone  -alpha extract -draw "fill black polygon 0,0 0,10 10,0 fill white circle 10,10 10,0" ( +clone -flip ) -compose Multiply -composite ( +clone -flop ) -compose Multiply -composite ) -alpha off -compose CopyOpacity -composite  ..\images\hex.png
+ImageMagick-7.0.11-12-portable-Q16-x86\convert -font arial -fill black -pointsize 45 -gravity West -draw "text 24,-4 '* Hexadecimal Numbering System'" ..\images\hex.png ..\images\hex.png
+
+echo Binary
+ImageMagick-7.0.11-12-portable-Q16-x86\magick -size 766x72 -define gradient:angle=0 gradient:"#788BFE-#1639FE" ..\images\binary.png 
+ImageMagick-7.0.11-12-portable-Q16-x86\convert ..\images\binary.png ( +clone  -alpha extract -draw "fill black polygon 0,0 0,10 10,0 fill white circle 10,10 10,0" ( +clone -flip ) -compose Multiply -composite ( +clone -flop ) -compose Multiply -composite ) -alpha off -compose CopyOpacity -composite  ..\images\binary.png
+ImageMagick-7.0.11-12-portable-Q16-x86\convert -font arial -fill black -pointsize 50 -gravity West -draw "text 24,-4 '* Binary Numbering System'" ..\images\binary.png ..\images\binary.png
+
+echo Decimal
+ImageMagick-7.0.11-12-portable-Q16-x86\magick -size 766x72 -define gradient:angle=0 gradient:"#788BFE-#1639FE" ..\images\decimal.png 
+ImageMagick-7.0.11-12-portable-Q16-x86\convert ..\images\decimal.png ( +clone  -alpha extract -draw "fill black polygon 0,0 0,10 10,0 fill white circle 10,10 10,0" ( +clone -flip ) -compose Multiply -composite ( +clone -flop ) -compose Multiply -composite ) -alpha off -compose CopyOpacity -composite  ..\images\decimal.png
+ImageMagick-7.0.11-12-portable-Q16-x86\convert -font arial -fill black -pointsize 50 -gravity West -draw "text 24,-4 '* Decimal Numbering System'" ..\images\decimal.png ..\images\decimal.png
+
+echo Chmod
+ImageMagick-7.0.11-12-portable-Q16-x86\magick -size 766x72 -define gradient:angle=0 gradient:"#788BFE-#1639FE" ..\images\chmod.png 
+ImageMagick-7.0.11-12-portable-Q16-x86\convert ..\images\chmod.png ( +clone  -alpha extract -draw "fill black polygon 0,0 0,10 10,0 fill white circle 10,10 10,0" ( +clone -flip ) -compose Multiply -composite ( +clone -flop ) -compose Multiply -composite ) -alpha off -compose CopyOpacity -composite  ..\images\chmod.png
+ImageMagick-7.0.11-12-portable-Q16-x86\convert -font arial -fill black -pointsize 50 -gravity West -draw "text 24,-4 '* chmod - Change mode'" ..\images\chmod.png ..\images\chmod.png
+
+echo ASCII
+ImageMagick-7.0.11-12-portable-Q16-x86\magick -size 766x72 -define gradient:angle=0 gradient:"#788BFE-#1639FE" ..\images\ascii.png 
+ImageMagick-7.0.11-12-portable-Q16-x86\convert ..\images\ascii.png ( +clone  -alpha extract -draw "fill black polygon 0,0 0,10 10,0 fill white circle 10,10 10,0" ( +clone -flip ) -compose Multiply -composite ( +clone -flop ) -compose Multiply -composite ) -alpha off -compose CopyOpacity -composite  ..\images\ascii.png
+ImageMagick-7.0.11-12-portable-Q16-x86\convert -font arial -fill black -pointsize 50 -gravity West -draw "text 24,-4 '* ASCII'" ..\images\ascii.png ..\images\ascii.png
+
+echo Phonetic Alphabet
+ImageMagick-7.0.11-12-portable-Q16-x86\magick -size 766x72 -define gradient:angle=0 gradient:"#788BFE-#1639FE" ..\images\phonetic.png 
+ImageMagick-7.0.11-12-portable-Q16-x86\convert ..\images\phonetic.png ( +clone  -alpha extract -draw "fill black polygon 0,0 0,10 10,0 fill white circle 10,10 10,0" ( +clone -flip ) -compose Multiply -composite ( +clone -flop ) -compose Multiply -composite ) -alpha off -compose CopyOpacity -composite  ..\images\phonetic.png
+ImageMagick-7.0.11-12-portable-Q16-x86\convert -font arial -fill black -pointsize 50 -gravity West -draw "text 24,-4 '* The Phonetic Alphabet'" ..\images\phonetic.png ..\images\phonetic.png
+
+echo Windows
+ImageMagick-7.0.11-12-portable-Q16-x86\magick -size 766x72 -define gradient:angle=0 gradient:"#788BFE-#1639FE" ..\images\windows.png 
+ImageMagick-7.0.11-12-portable-Q16-x86\convert ..\images\windows.png ( +clone  -alpha extract -draw "fill black polygon 0,0 0,10 10,0 fill white circle 10,10 10,0" ( +clone -flip ) -compose Multiply -composite ( +clone -flop ) -compose Multiply -composite ) -alpha off -compose CopyOpacity -composite  ..\images\windows.png
+ImageMagick-7.0.11-12-portable-Q16-x86\convert -font arial -fill black -pointsize 50 -gravity West -draw "text 24,-4 '* Windows Operating System'" ..\images\windows.png ..\images\windows.png
 pause
