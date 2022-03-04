@@ -23,6 +23,13 @@ width: 776px;
 float: center; 
 }
 
+table {
+  text-align: left;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #noframes
 {
 background-image: url("images/darkback1.jpg");

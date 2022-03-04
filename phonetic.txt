@@ -1,0 +1,45 @@
+iPhonetic Alphabet
+
+iLetters
+
+iLetter 	Code word 	Pronunciation
+iA 			Alpha 		AL FAH
+iB 			Bravo 		BRAH VOH
+iC 			Charlie 	CHAR LEE
+iD 			Delta 		DEL TAH
+iE 			Echo 		ECK OH
+iF 			Foxtrot 	FOKS TROT
+iG 			Golf 		GOLF
+iH 			Hotel 		HO TELL
+iI 			India 		IN DEE AH
+iJ 			Juliet 		JEW LEE ETT
+iK 			Kilo 		KEY LOH
+iL 			Lima 		LEE MAH
+iM 			Mike 		MIKE
+iN 			November 	NO VEM BER
+iO 			Oscar 		OSS CAH
+iP 			Papa 		PAH PAH
+iQ 			Quebec 		KEH BECK
+iR 			Romeo 		ROW ME OH
+iS 			Sierra 		SEE AIR RAH
+iT 			Tango 		TANG GO
+iU 			Uniform 	YOU NEE FORM
+iV 			Victor 		VIK TAH
+iW 			Whiskey 	WISS KEY
+iX 			X-ray 		ECKS RAY
+iY 			Yankee 		YANG KEY
+iZ 			Zulu 		ZOO LOO
+
+iNumeric characters
+
+iNumber 	Word 	Pronunciation
+i1 			One 	Wun
+i2 			Two 	Too
+i3 			Three 	TREE
+i4 			Four 	Fo-wer
+i5 			Five 	Fi-YIV
+i6 			Six 	SIX
+i7 			Seven 	Sev-en
+i8 			Eight 	Ait
+i9 			Nine 	Nin-er
+i0 			Zero 	Zee-ro
