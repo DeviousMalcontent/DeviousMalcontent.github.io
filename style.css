@@ -3,9 +3,36 @@ This is the CSS code for my website.
 
 Makes it easier to update.
 */
+/*
+@namespace url(http://www.w3.org/1999/xhtml);
 
-/* p.msoNormal  We have to have this here, other wise IE wont work properly, not that it ever has. */
-/* li.msoNormal  Stupid IE!*/
+frameset, frameset[frameborder='0'], frameset[frameborder=no i] { border: none; }
+
+frameset
+{
+  border-color: coral;
+}
+
+frame
+{
+border : 0;
+border-color: #2227FD;
+color: #2227FD;
+background-color: #2227FD;
+} */
+
+frameset
+{
+  border-color: #000000;
+  frameborder: 0px;
+  border: 0px;
+}
+
+.noborder {
+border:0px;
+border-style: none;
+}
+
 body
 {
 background-image: url("images/darkback1.jpg");
@@ -14,6 +41,9 @@ background-repeat: repeat-y;
 margin-left: 9em;
 margin-top: 0em;
 margin-bottom: 0em;
+border:0px;
+border-style: none;
+border-color: ##2227FD;
 }
 
 hr
@@ -53,6 +83,8 @@ text-align: left;
 	margin-left: 0;
 
 	/* background="Images/navbarbackg1.jpg" bgcolor="#000000" link="#FFFFFF" vlink="#C0C0C0" */
+	
+	border-color: ##2227FD;
 }
 
 .navbar h2 {
