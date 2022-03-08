@@ -20,31 +20,55 @@ border-color: #2227FD;
 color: #2227FD;
 background-color: #2227FD;
 } */
+/*
+#noborder {
+border:0px;
+border-style: none;
+border-color: #000000;
+border-width: 0px;
+background-color: #000000;
+} */
 
 frameset
 {
-  border-color: #000000;
-  frameborder: 0px;
-  border: 0px;
-}
-
-.noborder {
-border:0px;
-border-style: none;
+background-color: #000000;
+border-color: #2227FD;
+border: 5px;
+overflow: hidden; 
+z-index: 1;
+background-image: url("images/darkback1.jpg");
+background-position: top left; 
+background-repeat: repeat-y;
 }
 
 body
 {
+background-color: #FFFFFF;
 background-image: url("images/darkback1.jpg");
 background-position: top left; 
 background-repeat: repeat-y;
 margin-left: 9em;
 margin-top: 0em;
 margin-bottom: 0em;
-border:0px;
+/* border:0px;
 border-style: none;
-border-color: ##2227FD;
+border-color: #2227FD; */
 }
+
+body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: orange;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: blue;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid orange;  /* creates padding around scroll thumb */
+}
+
 
 hr
 {
@@ -67,6 +91,7 @@ background-position: 200px;
 background-repeat: repeat-y;
 margin-left: 328px;
 text-align: left;
+z-index: 1;
 }
 
 .navbar {
