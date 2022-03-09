@@ -1,4 +1,7 @@
 @echo off
+echo Blank
+ImageMagick-7.0.11-12-portable-Q16-x86\magick -size 5x5 xc:#000000 ..\images\blank.png 
+
 echo Banner
 ImageMagick-7.0.11-12-portable-Q16-x86\magick -size 770x200 -define gradient:angle=74 gradient:"#D8DAEF-#0627E6" ..\images\banner.png 
 ImageMagick-7.0.11-12-portable-Q16-x86\convert ..\images\banner.png -bordercolor black -border 3 ..\images\banner.png

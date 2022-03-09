@@ -2,7 +2,7 @@
 This Websites design code and contents, Copyright © 1992-2011 Mark - All rights reserved.
 
 Reproduction of any material on this site without permission is prohibited and may result in legal ramification. 
-Please contact the webmaster by E-mail at deviousmalcontent@gmail.com for more information and permission.
+Please contact the webmaster by E-mail at deviousmalcon-t@users.sourceforge.net for more information and permission.
 
 This Websites design code and contents, Copyright © 1992-2011 Mark - All rights reserved. 
 -->
@@ -13,10 +13,19 @@ This Websites design code and contents, Copyright © 1992-2011 Mark - All rights 
 	<link rel="icon" href="images/favicon.ico">
 	<link rel="stylesheet" href="style.css">
 	<script type="text/javascript">
-	//window.location="http://deviousmalcon-t.users.sourceforge.net/home/links.php";
-	</script>
+	/* Dirty hack required to hide the Frameset border while still allowing the document to be valid, also not required for the full functionality of the site. */
+	function HideFramesetBorder() {
+		var frameset = document.getElementById("FramesetBorder");
+		var border = document.getElementsByTagName("frameset")[0];
+		for(var i = 0, attrs = border.attributes, l = attrs.length; i < l; i++)
+		frameset.setAttribute(attrs.item(i).nodeName, attrs.item(i).nodeValue);
+		frameset.setAttribute("border", "0");
+		var parent = border.parentNode;
+		parent.replaceChild(frameset, border);
+	}
+    </script>
 </head>
-<frameset cols="195px,*">
+<frameset id="FramesetBorder" cols="200px,*" onload="HideFramesetBorder()">
  <frame frameborder="0" name="menubar" marginwidth="0" marginheight="0" src="menubar.html" noresize>
  <frame frameborder="0" name="contents" marginwidth="0" marginheight="0" src="home.html" noresize>
  <noframes>
