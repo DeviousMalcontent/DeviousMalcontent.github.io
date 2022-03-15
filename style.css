@@ -88,6 +88,34 @@ z-index: 1;
   color: #FFFFFF;
 } 
 
+.smallerText p {
+  color: #FFFFFF;
+  font-size: 12px;
+  text-align: left;
+  font-weight: bold;
+  padding-left:12px;
+  line-height: 4px;
+}
+
+.smallerText a:link {
+  color: #FFFFFF;
+  font-size: 12px;
+}
+
+.smallerText a:visited {
+  color: #C0C0C0;
+  font-size: 12px;
+}
+
+.smallerText a:hover {
+  color: #57007F;
+  font-size: 12px;
+}
+
+.smallerText a:active {
+  color: #FFFFFF;
+} 
+
 .footer {
 	/* border: 3px solid green; */
     margin: 0 auto;
