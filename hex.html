@@ -1,10 +1,10 @@
 <!-- Legal Notice
-This Websites design code and contents, Copyright © 1992-2011 Mark - All rights reserved.
+This Websites design code and contents, Copyright Â© 1992-2011 Mark - All rights reserved.
 
 Reproduction of any material on this site without permission is prohibited and may result in legal ramification. 
 Please contact the webmaster by E-mail at deviousmalcon-t@users.sourceforge.net for more information and permission.
 
-This Websites design code and contents, Copyright © 1992-2011 Mark - All rights reserved. 
+This Websites design code and contents, Copyright Â© 1992-2011 Mark - All rights reserved. 
 -->
 
 <!-- DOCTYPE for HTML 4.01 -->
@@ -17,36 +17,114 @@ This Websites design code and contents, Copyright © 1992-2011 Mark - All rights 
 <meta name="keywords" content="Devious Malcontent,Hexadecimal Reference,github,github pages" >
 <link rel="stylesheet" href="style.css">
 <title>Devious Malcontent - Hexadecimal Reference</title>
-<meta property="og:title" content="Devious Malcontent - Hexadecimal Reference" />
-<meta property="og:description" content="Devious Malcontent - Hexadecimal Reference" />
-<meta property="og:url" content="http://DeviousMalcontent.github.io/Hexadecimal.html" />
-<meta property="og:image" content="http://i.imgur.com/ulzviNJ.png" />
-<meta property="og:image:width" content="120" />
-<meta property="og:image:height" content="120" />
-<meta property="og:image" content="http://deviousmalcon-t.users.sourceforge.net/home/images/about/devious_malcontent.png" />
-<meta property="og:image:width" content="180" />
-<meta property="og:image:height" content="180" />
-<meta property="og:image" content="http://deviousmalcon-t.users.sourceforge.net/home/images/about/devious_malcontent200x200.png" />
-<meta property="og:image:width" content="200" />
-<meta property="og:image:height" content="200" />
-<meta property="og:image" content="http://deviousmalcon-t.users.sourceforge.net/home/images/about/devious_malcontent300x300.png" />
-<meta property="og:image:width" content="300" />
-<meta property="og:image:height" content="300" />
+<script type="text/javascript">
+function FixExternalImagesNotLoading() {
+	document.getElementById("htmlvalidator").onerror = document.getElementById('htmlvalidator').src="images/ext/valid-html401.png";
+	document.getElementById("mozilla").onerror = document.getElementById('mozilla').src="images/ext/110x32_best_blue.png";
+	document.getElementById("cssvalidator").onerror = document.getElementById('cssvalidator').src="images/ext/vcss-blue.gif";
+}
+</script>
 </head>
 <body background="images/darkback1.jpg">
 <p align="center"><img border="0" src="images/hex.png" width="766" height="72" align="center"></p>
 <hr />
 <h1 align="center">Hexadecimal Numbering System</h1>
 <hr />
-<p align="center">some text</p>
-<hr />
-<div class="footer">
-	<p><a href="http://validator.w3.org/check?uri=referer"><img style="border:0;" src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01 Frameset" height="31" width="88"></a></p>
-	<!-- <p><a href='http://www.mozilla.com/?from=sfx&amp;uid=0&amp;t=552'><img src='https://web.archive.org/web/20110226163836if_/http://sfx-images.mozilla.org/firefox/3.6/110x32_best_blue.png' alt='Spread Firefox Affiliate Button' border='0' /></a></p> -->
-	<p><a href='http://www.mozilla.com/?from=sfx&amp;uid=0&amp;t=552'><img src='https://web.archive.org/web/20110203023354if_/https://web.archive.org/web/20110226163836if_/http://sfx-images.mozilla.org/firefox/3.6/110x32_best_blue.png' alt='Spread Firefox Affiliate Button' border='0' /></a></p>
-	<p><img src="images/no_ie_support.png" height="50" width="116" alt="Not designed for, Windows Internet Explorer! (And dam proud of it.)" border="0" /></p>
-	<p><a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!" /></a></p>
+<div style="text-align: center;">
+<div style="display: inline-block; text-align: left; max-width: 766px;">
+<p>Hexadecimal is a positional numeral system with a base of 16. It uses sixteen distinct symbols, most often the symbols 0-9 and A, B, C, D, E, F to represent values ten to fifteen. In computing, hexadecimal numerals are usually written with a prefix, "0x".</p>
+<p>To convert Binary to Hexadecimal we divide the binary value into 4 bit chunks, starting with the right, and padding the remaining chunk with zeros if it falls short of 4 bits.</p>
+<p>Then we convert each individual 4 bit chunk in to its decimal value, if a decimal value is between 10 or 15 it is represented with letters A through to F respectively. As the table below illustrates;</p>
+<table style="text-align: center;max-width: 200px;">
+	<tr style="outline: thin solid">
+		<th style="outline: thin solid">BIN</th>
+		<th style="outline: thin solid">DEC</th>
+		<th style="outline: thin solid">HEX</th>
+	</tr>
+	<tr style="outline: thin solid">
+		<td style="outline: thin solid">0001</td>
+		<td style="outline: thin solid">1</td>
+		<td style="outline: thin solid">1</td>
+	</tr>
+	<tr style="outline: thin solid">
+		<td style="outline: thin solid">0010</td>
+		<td style="outline: thin solid">2</td>
+		<td style="outline: thin solid">2</td>
+	</tr>
+	<tr style="outline: thin solid">
+		<td style="outline: thin solid">0011</td>
+		<td style="outline: thin solid">3</td>
+		<td style="outline: thin solid">3</td>
+	</tr>
+	<tr style="outline: thin solid">
+		<td style="outline: thin solid">0100</td>
+		<td style="outline: thin solid">4</td>
+		<td style="outline: thin solid">4</td>
+	</tr>
+	<tr style="outline: thin solid">
+		<td style="outline: thin solid">0101</td>
+		<td style="outline: thin solid">5</td>
+		<td style="outline: thin solid">5</td>
+	</tr>
+	<tr style="outline: thin solid">
+		<td style="outline: thin solid">0110</td>
+		<td style="outline: thin solid">6</td>
+		<td style="outline: thin solid">6</td>
+	</tr>
+	<tr style="outline: thin solid">
+		<td style="outline: thin solid">0111</td>
+		<td style="outline: thin solid">7</td>
+		<td style="outline: thin solid">7</td>
+	</tr>
+	<tr style="outline: thin solid">
+		<td style="outline: thin solid">1000</td>
+		<td style="outline: thin solid">8</td>
+		<td style="outline: thin solid">8</td>
+	</tr>
+	<tr style="outline: thin solid">
+		<td style="outline: thin solid">1001</td>
+		<td style="outline: thin solid">9</td>
+		<td style="outline: thin solid">9</td>
+	</tr>
+	<tr style="outline: thin solid">
+		<td style="outline: thin solid">1010</td>
+		<td style="outline: thin solid">10</td>
+		<td style="outline: thin solid">A</td>
+	</tr>
+	<tr style="outline: thin solid">
+		<td style="outline: thin solid">1011</td>
+		<td style="outline: thin solid">11</td>
+		<td style="outline: thin solid">B</td>
+	</tr>
+	<tr style="outline: thin solid">
+		<td style="outline: thin solid">1100</td>
+		<td style="outline: thin solid">12</td>
+		<td style="outline: thin solid">C</td>
+	</tr>
+	<tr style="outline: thin solid">
+		<td style="outline: thin solid">1101</td>
+		<td style="outline: thin solid">13</td>
+		<td style="outline: thin solid">D</td>
+	</tr>
+	<tr style="outline: thin solid">
+		<td style="outline: thin solid">1110</td>
+		<td style="outline: thin solid">14</td>
+		<td style="outline: thin solid">E</td>
+	</tr>
+	<tr style="outline: thin solid">
+		<td style="outline: thin solid">1111</td>
+		<td style="outline: thin solid">15</td>
+		<td style="outline: thin solid">F</td>
+	</tr>
+</table>
 </div>
-<hr />
+</div>
+<hr>
+<div class="footer">
+	<p><a href="http://validator.w3.org/check?uri=http://deviousmalcontent.github.io/phonetic.html" target="_blank"><img id="htmlvalidator" style="border:0;" src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01 Frameset" height="31" width="88"></a></p>
+	<p><a href='http://www.mozilla.com/?from=sfx&amp;uid=0&amp;t=552' target="_blank"><img id="mozilla" src='https://web.archive.org/web/20110226163836if_/http://sfx-images.mozilla.org/firefox/3.6/110x32_best_blue.png' alt='Spread Firefox Affiliate Button' border='0'></a></p>
+	<p><img src="images/no_ie_support.png" height="50" width="116" alt="Not designed for, Windows Internet Explorer! (And dam proud of it.)" style="border:0;"></p>
+	<p><a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img id="cssvalidator" style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!"></a></p>
+</div>
 </body>
 </html>
