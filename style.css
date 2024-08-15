@@ -1,5 +1,4 @@
-body
-{
+body {
 background-color: #FFFFFF;
 background-image: url("images/darkback1.jpg");
 background-position: top left; 
@@ -12,8 +11,7 @@ border-style: none;
 border-color: #2227FD; */
 }
 
-hr
-{
+hr {
 color: #CCCCCC;
 width: 776px;
 /* float: center; */
@@ -26,14 +24,13 @@ table {
   margin-right: auto;
 }
 
-#noframes
-{
-background-image: url("images/darkback1.jpg");
-background-position: 200px; 
-background-repeat: repeat-y;
-margin-left: 328px;
-text-align: left;
-z-index: 1;
+#noframes {
+  background-image: url("images/darkback1.jpg");
+  background-position: 200px; 
+  background-repeat: repeat-y;
+  margin-left: 328px;
+  text-align: left;
+  z-index: 1;
 }
 
 .center {
@@ -44,17 +41,17 @@ z-index: 1;
 }
 
 .navbar {
-	z-index: 1;
-	position: fixed; 
-	top: 0px; 
-	left: 0px; 
-	width: 200px; 
-	height: 100%; 
-	background-color: #2227FD;
-	background-image:url("images/navbarbackg1.jpg");
-	background-position: top left; 
-	background-repeat: repeat-y;
-	margin-left: 0;
+  z-index: 1;
+  position: fixed; 
+  top: 0px; 
+  left: 0px; 
+  width: 200px; 
+  height: 100%; 
+  background-color: #2227FD;
+  background-image:url("images/navbarbackg1.jpg");
+  background-position: top left; 
+  background-repeat: repeat-y;
+  margin-left: 0;
 }
 
 .navbar h2 {
@@ -117,19 +114,19 @@ z-index: 1;
 } 
 
 .footer {
-	/* border: 3px solid green; */
-    margin: 0 auto;
-    width: 50%;
-    /* text-align: center;
-    font-family:'Montserrat', sans-serif; */
-    display: flex;
-    justify-content: center;
+  /* border: 3px solid green; */
+  margin: 0 auto;
+  width: 50%;
+  /* text-align: center;
+  font-family:'Montserrat', sans-serif; */
+  display: flex;
+  justify-content: center;
 }
 .footer p {
-	/* border: 3px solid green; */
-	text-align: center;
-    width:100px;
-    padding:5px;
-    margin: 5px;
-    display: table-cell;
+  /* border: 3px solid green; */
+  text-align: center;
+  width:100px;
+  padding:5px;
+  margin: 5px;
+  display: table-cell;
 }
